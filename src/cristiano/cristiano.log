@@ -1,0 +1,25 @@
+----- INICIO DA NOVA VARREDURA -----
+Wed Jan 28 15:25:32 UTC 2026
+Diretorio analizado: /var/www
+----------------------------
+[ARQUIVO] /var/www/LICENSE
+[ARQUIVO] /var/www/README.md
+[PASTA] /var/www/app
+[ARQUIVO] /var/www/builds
+[ARQUIVO] /var/www/composer.json
+[ARQUIVO] /var/www/composer.lock
+[PASTA] /var/www/cristiano
+[ARQUIVO] /var/www/env
+[PASTA] /var/www/logs
+[ARQUIVO] /var/www/phpunit.xml.dist
+[ARQUIVO] /var/www/preload.php
+[PASTA] /var/www/public
+[PASTA] /var/www/shell
+[ARQUIVO] /var/www/spark
+[PASTA] /var/www/tests
+[PASTA] /var/www/vendor
+[PASTA] /var/www/writable
+##################################################
+total de pastas: 8
+total de arquivos: 9
+===== FIM DA VARREDURA =====

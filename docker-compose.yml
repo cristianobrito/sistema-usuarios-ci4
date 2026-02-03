@@ -1,0 +1,38 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php83/Dockerfile
+    container_name: ci4_app
+    volumes:
+      - ./src:/var/www
+    networks:
+      - ci4
+
+  web:
+    image: httpd:2.4
+    container_name: ci4_web
+    depends_on:
+      - app
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www
+      - ./docker/apache/vhost.conf:/usr/local/apache2/conf/extra/vhost.conf
+
+    command: >
+      sh -c "
+      sed -i 's/#LoadModule rewrite_module/LoadModule rewrite_module/' /usr/local/apache2/conf/httpd.conf &&
+      sed -i 's/#LoadModule proxy_module/LoadModule proxy_module/' /usr/local/apache2/conf/httpd.conf &&
+      sed -i 's/#LoadModule proxy_fcgi_module/LoadModule proxy_fcgi_module/' /usr/local/apache2/conf/httpd.conf &&
+      echo 'Include conf/extra/vhost.conf' >> /usr/local/apache2/conf/httpd.conf &&
+      httpd-foreground
+      "
+
+    networks:
+      - ci4
+
+# 👇👇👇 ISTO ESTAVA FALTANDO 👇👇👇
+networks:
+  ci4:
+    driver: bridge

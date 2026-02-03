@@ -1,0 +1,30 @@
+----- scan de extensoes -----
+Wed Jan 28 16:07:30 UTC 2026
+diretorio analizado: /var/www
+---------------------------
+[PHP] /var/www/app/Common.php
+[OUTROS] /var/www/app/index.html
+[OUTROS] /var/www/builds
+[OUTROS] /var/www/composer.json
+[OUTROS] /var/www/composer.lock
+[LOG] /var/www/cristiano/cristiano.log
+[OUTROS] /var/www/env
+[OUTROS] /var/www/LICENSE
+[LOG] /var/www/logs/appCI4.log
+[LOG] /var/www/logs/scan.log
+[OUTROS] /var/www/phpunit.xml.dist
+[PHP] /var/www/preload.php
+[OUTROS] /var/www/public/favicon.ico
+[PHP] /var/www/public/index.php
+[OUTROS] /var/www/public/robots.txt
+[OUTROS] /var/www/README.md
+[OUTROS] /var/www/spark
+[OUTROS] /var/www/tests/index.html
+[OUTROS] /var/www/tests/README.md
+[PHP] /var/www/vendor/autoload.php
+[OUTROS] /var/www/writable/index.html
+++++++++++++++++++++++++++++++++++
+total PHP: 4
+total LOG: 3
+OUTROS arquivos: 14
+===== FIM DO SCAN =====

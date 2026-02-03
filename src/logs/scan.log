@@ -1,0 +1,24 @@
+=== INICIO DA VARREDURA ===
+Mon Jan 26 15:47:41 UTC 2026
+Diretorio analisado: /var/www
+---------------------------
+[ARQUIVO] /var/www/LICENSE
+[ARQUIVO] /var/www/README.md
+[PASTA]  /var/www/app
+[ARQUIVO] /var/www/builds
+[ARQUIVO] /var/www/composer.json
+[ARQUIVO] /var/www/composer.lock
+[ARQUIVO] /var/www/env
+[PASTA]  /var/www/logs
+[ARQUIVO] /var/www/phpunit.xml.dist
+[ARQUIVO] /var/www/preload.php
+[PASTA]  /var/www/public
+[PASTA]  /var/www/shell
+[ARQUIVO] /var/www/spark
+[PASTA]  /var/www/tests
+[PASTA]  /var/www/vendor
+[PASTA]  /var/www/writable
+---------------------------
+Total de pastas: 7
+Total de arquivos: 9
+=== FIM DA VARREDURA ===
