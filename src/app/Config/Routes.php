@@ -32,3 +32,5 @@ $routes->get('/seguranca/relatorio', 'Teste2Controller::relatorio');
 $routes->post('/seguranca/disparar', 'Teste2Controller::dispararScan');
 
 $routes->get('/users', 'Users::index');
+
+$routes->get('/users/(:num)', 'Users::show/$1');
