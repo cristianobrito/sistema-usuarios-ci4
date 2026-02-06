@@ -17,6 +17,33 @@ class Users extends BaseController
         'users' => $users
      ]); 
   }
+
+  public function show($id)
+  {
+      $users=[
+        ['id' => 1, 'name' => 'cristiano', 'email' => 'cris@email.com'],
+        ['id' => 2, 'name' => 'joyce',     'email' => 'joy@email.com' ],
+        ['id' => 3, 'name' => 'akilles',   'email' => 'ak@email.com'],
+        ['id' => 4, 'name' => 'luna',      'email' => 'lua@email.com'],
+     ];
+
+     $userFound = null;
+
+     foreach ($users as $user) {
+        if ($user['id'] == $id) {
+              $userFound = $user;
+              break;
+         }
+      }
+
+      if (!$userFound) {
+        return 'Usuário não encontrado';
+      }
+
+      return view('users/show', [
+        'user' => $userFound
+      ]);
+  }
 }
 
 ?>
