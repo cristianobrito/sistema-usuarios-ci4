@@ -1,0 +1,18 @@
+inicio da contagem --->
+[PASTA] /var/www/shell/protecao/carinha
+[PASTA] /var/www/shell/protecao/protect
+[PASTA] /var/www/shell/protecao/pt1
+[ARQUIVO] /var/www/shell/protecao/pt1.js
+[ARQUIVO] /var/www/shell/protecao/pt1.md
+[ARQUIVO] /var/www/shell/protecao/pt1.php
+[ARQUIVO] /var/www/shell/protecao/pt1.txt
+[PASTA] /var/www/shell/protecao/pt2
+[ARQUIVO] /var/www/shell/protecao/pt2.html
+[ARQUIVO] /var/www/shell/protecao/pt2.sh
+[ARQUIVO] /var/www/shell/protecao/pt2.ts
+[PASTA] /var/www/shell/protecao/pt3
+totais: 
+pastas: 5
+arquivos: 7
+veja o log: /var/www/shell/protecao/protect/protect.log
+===== [ fim da varredura ] =====

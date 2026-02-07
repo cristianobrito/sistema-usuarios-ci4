@@ -1,0 +1,15 @@
+inicio da contagem --->
+[OUTROS] /var/www/shell/protecao/pt1.js
+[OUTROS] /var/www/shell/protecao/pt1.md
+[PHP] /var/www/shell/protecao/pt1.php
+[TXT] /var/www/shell/protecao/pt1.txt
+[HTML] /var/www/shell/protecao/pt2.html
+[OUTROS] /var/www/shell/protecao/pt2.sh
+[OUTROS] /var/www/shell/protecao/pt2.ts
+[PHP] /var/www/shell/protecao/sabado.php
+totaL: 
+[php]  2
+[txt]  1
+[html] 1
+veja o log: /var/www/shell/protecao/protect/scan.log
+===== [ fim da varredura ] =====

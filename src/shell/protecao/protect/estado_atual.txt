@@ -1,0 +1,38 @@
+/var/www/shell/protecao:
+total 0
+drwxrwxrwx 1 1000 1000 4096 Feb  7 14:01 carinha
+drwxrwxrwx 1 1000 1000 4096 Feb  7 14:54 protect
+drwxrwxrwx 1 1000 1000 4096 Feb  7 15:05 pt1
+-rwxrwxrwx 1 1000 1000    0 Feb  7 13:45 pt1.js
+-rwxrwxrwx 1 1000 1000    0 Feb  7 13:45 pt1.md
+-rwxrwxrwx 1 1000 1000    0 Feb  7 13:45 pt1.php
+-rwxrwxrwx 1 1000 1000    0 Feb  7 13:45 pt1.txt
+drwxrwxrwx 1 1000 1000 4096 Feb  7 15:07 pt2
+-rwxrwxrwx 1 1000 1000    0 Feb  7 13:45 pt2.html
+-rwxrwxrwx 1 1000 1000    0 Feb  7 13:45 pt2.sh
+-rwxrwxrwx 1 1000 1000    0 Feb  7 13:46 pt2.ts
+drwxrwxrwx 1 1000 1000 4096 Feb  7 15:19 pt3
+-rwxrwxrwx 1 1000 1000    0 Feb  7 14:37 sabado.php
+
+/var/www/shell/protecao/carinha:
+total 0
+
+/var/www/shell/protecao/protect:
+total 8
+-rwxrwxrwx 1 1000 1000 1262 Feb  7 15:19 estado_anterior.txt
+-rwxrwxrwx 1 1000 1000    0 Feb  7  2026 estado_atual.txt
+-rwxrwxrwx 1 1000 1000  623 Feb  7 14:16 protect.log
+-rwxrwxrwx 1 1000 1000  462 Feb  7 14:38 scan.log
+
+/var/www/shell/protecao/pt1:
+total 0
+-rwxrwxrwx 1 1000 1000 0 Feb  7 14:59 pt1.txt
+-rwxrwxrwx 1 1000 1000 0 Feb  7 15:05 pt2.txt
+
+/var/www/shell/protecao/pt2:
+total 0
+-rwxrwxrwx 1 1000 1000 0 Feb  7 15:07 pt2.txt
+
+/var/www/shell/protecao/pt3:
+total 0
+-rwxrwxrwx 1 1000 1000 31 Feb  7 15:21 pt3.txt

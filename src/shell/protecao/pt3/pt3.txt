@@ -1,0 +1,3 @@
+sou o teste de diff 
+comparando
+depois das hashes
