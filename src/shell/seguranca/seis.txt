@@ -1,0 +1,14 @@
+mudou
+modificando para ver se o cron pega
+
+modificando de novo para ver se o cron pega
+
+cron ativo
+
+testando pelo terminal
+
+plo terminal nao seiagora pelo terminal
+agora foi o caminho estava errado
+agora com o cron parado 
+comentei a linha do cron 
+comentario

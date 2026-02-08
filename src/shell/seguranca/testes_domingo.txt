@@ -1,0 +1,15 @@
+root:x:0:0:System Administrator:/root:/bin/bash
+daemon:x:1:1:System Services:/usr/sbin:/usr/sbin/nologin
+uucp:x:10:10:Unix to Unix Copy Protocol:/var/spool/uucp:/usr/sbin/nologin
+lp:x:7:7:Printing Services:/var/spool/lpd:/usr/sbin/nologin
+postfix:x:104:108:Postfix User:/var/spool/postfix:/usr/sbin/nologin
+www:x:33:33:World Wide Web Server:/var/www:/usr/sbin/nologin
+eppc:x:110:111:Apple Events User:/var/empty:/usr/bin/false
+mysql:x:112:113:MySQL Server:/var/lib/mysql:/bin/false
+sshd:x:113:65534:sshd Privilege separation:/run/sshd:/usr/sbin/nologin
+qtss:x:114:114:QuickTime Streaming Server:/var/empty:/usr/bin/false
+mailman:x:115:115:Mailman user:/var/lib/mailman:/usr/sbin/nologin
+amavisd:x:116:116:Amavisd User:/var/lib/amavis:/bin/false
+jabber:x:117:117:Jabber User:/var/lib/jabber:/bin/false
+tokend:x:118:118:Token Daemon:/var/empty:/usr/bin/false
+unknown:x:65534:65534:Unknown User:/nonexistent:/usr/sbin/nologin
