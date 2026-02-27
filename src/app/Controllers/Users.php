@@ -1,47 +1,36 @@
 <?php
 namespace App\Controllers;
 
+use App\Models\UserModel;
+
 class Users extends BaseController
 {
   public function index()
   {
-     $users=[
-        ['id' => 1, 'name' => 'cristiano'],
-        ['id' => 2, 'name' => 'joyce'],
-        ['id' => 3, 'name' => 'akilles'],
-        ['id' => 4, 'name' => 'luna'],
-     ];
+     $model = new UserModel();
 
-     return view('users/list', [
-        'title' => 'lista de usuarios',
+   //   $users = $model->getUsers();  antes era mokado 
+     $users = $model->findAll();   // estou pegando do banco
+
+     return view('users/index', [
         'users' => $users
      ]); 
   }
 
   public function show($id)
   {
-      $users=[
-        ['id' => 1, 'name' => 'cristiano', 'email' => 'cris@email.com'],
-        ['id' => 2, 'name' => 'joyce',     'email' => 'joy@email.com' ],
-        ['id' => 3, 'name' => 'akilles',   'email' => 'ak@email.com'],
-        ['id' => 4, 'name' => 'luna',      'email' => 'lua@email.com'],
-     ];
+     $model = new UserModel();
 
-     $userFound = null;
+   //   $user = $model->getUserById($id);
+     $user = $model->find($id);    // agora vem do banco
 
-     foreach ($users as $user) {
-        if ($user['id'] == $id) {
-              $userFound = $user;
-              break;
-         }
-      }
 
-      if (!$userFound) {
-        return 'Usuário não encontrado';
-      }
+     if(!$user){
+       return 'Usuario não encontrado';
+     }
 
       return view('users/show', [
-        'user' => $userFound
+        'user' => $user
       ]);
   }
 }

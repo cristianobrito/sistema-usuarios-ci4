@@ -31,8 +31,29 @@ services:
 
     networks:
       - ci4
+      - app
+      - db
 
-# 👇👇👇 ISTO ESTAVA FALTANDO 👇👇👇
+  db:
+    image: mysql:8
+    container_name: ci4_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ci4
+      MYSQL_USER: ci4user
+      MYSQL_PASSWORD: ci4pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - ci4
+
+# STO ESTAVA FALTANDO 
 networks:
   ci4:
     driver: bridge
+
+volumes:
+  db_data:

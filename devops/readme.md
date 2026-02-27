@@ -4,21 +4,14 @@ author: *Cristiano*
 
 title: *CI4*
 
-ano: *2026*
-
+ano: 2026
 
 ---
 # CI4
-
-### Iniciando o docker
-- docker desktop rodando
+### Docker
+- Inicie o docker desktop
 
 ```bash
-
-O Windows PowerShell
-Copyright (C) Microsoft Corporation. Todos os direitos reservados.
-
-Instale o PowerShell mais recente para obter novos recursos e aprimoramentos! https://aka.ms/PSWindows
 
 PS C:\Users\brito> wsl --list --verbose
   NAME              STATE           VERSION
@@ -28,11 +21,6 @@ PS C:\Users\brito> wsl --list --verbose
 PS C:\Users\brito> wsl -d ubuntu-24.04
 cristiano@Akilles:/mnt/c/Users/brito$ cd desktop
 cristiano@Akilles:/mnt/c/Users/brito/desktop$ ls
-'Blender 4.5.lnk'    Discord.lnk          'Navegador Opera GX.lnk'  'Roblox Studio.lnk'       estudo-versao        phpBackEnd
-'Clash Royale.lnk'  'Docker Desktop.lnk'   Postman.lnk               UCLivre                 'nano - Chrome.lnk'   saloon
- CodeBlocks.lnk     'Dying Light.url'      Projetos                  Valheim.url              nanoBanana
- Cuphead.url        'Meus projetos'       'Resident Evil 6.url'      ballroom@email.com.txt   pddesafio
-'Dead Cells.url'     NANO                 'Roblox Player.lnk'        desktop.ini              php-teste
 cristiano@Akilles:/mnt/c/Users/brito/desktop$ cd Projetos/
 cristiano@Akilles:/mnt/c/Users/brito/desktop/Projetos$ ls
 sistema-usuarios-ci4
@@ -41,86 +29,6 @@ cristiano@Akilles:/mnt/c/Users/brito/desktop/Projetos/sistema-usuarios-ci4$ ls
 docker  docker-compose.yml  src  teste.txt
 cristiano@Akilles:/mnt/c/Users/brito/desktop/Projetos/sistema-usuarios-ci4$ code .
 cristiano@Akilles:/mnt/c/Users/brito/desktop/Projetos/sistema-usuarios-ci4$ docker compose up -d
-[+] up 9/9
- ✔ Image httpd:2.4 Pulled                                                                                                                 12.7s
-[+] Building 169.4s (14/14) FINISHED
- => [internal] load local bake definitions                                                                                                 0.0s
- => => reading from stdin 591B                                                                                                             0.0s
- => [internal] load build definition from Dockerfile                                                                                       0.1s
- => => transferring dockerfile: 396B                                                                                                       0.1s
- => [internal] load metadata for docker.io/library/composer:2                                                                              2.1s
- => [internal] load metadata for docker.io/library/php:8.3-fpm                                                                             2.1s
- => [auth] library/composer:pull token for registry-1.docker.io                                                                            0.0s
- => [auth] library/php:pull token for registry-1.docker.io                                                                                 0.0s
- => [internal] load .dockerignore                                                                                                          0.1s
- => => transferring context: 2B                                                                                                            0.0s
- => FROM docker.io/library/composer:2@sha256:f0809732b2188154b3faa8e44ab900595acb0b09cd0aa6c34e798efe4ebc9021                             29.3s
- => => resolve docker.io/library/composer:2@sha256:f0809732b2188154b3faa8e44ab900595acb0b09cd0aa6c34e798efe4ebc9021                        0.1s
- => => sha256:6ee3c1d2e9ac7a655644d16c8738bccf2f888f42697c20b3744bc484ea326bae 421B / 421B                                                 0.4s
- => => sha256:85e723217902d16913eb5cd85e16f0238e8144013064dd023973e7d839d6da8d 1.20MB / 1.20MB                                             1.1s
- => => sha256:14a3951ce7cc33af36e7896f9a99572ad29daa2d0e6cd866dc6b6966009b3eab 93B / 93B                                                   0.3s
- => => sha256:7feec308fd3470c97255d7a60020bbe90d767c5479a73814bc55c513ff36ebe3 257B / 257B                                                 0.4s
- => => sha256:fef3c71157308e87aeaddd091a8894ec070a66f8d6ed72cdf7742aee2c2861b0 32.83MB / 32.83MB                                          14.9s
- => => sha256:5ae2e9d59d676a12ce9da665afe56a91b2a27e62233ba66323fec94c0f49338b 23.48kB / 23.48kB                                           0.5s
- => => sha256:f6293f18632475b1ea319995f8245c05e8d802857bd2a39a98fed016f91106fd 2.45kB / 2.45kB                                             0.6s
- => => sha256:8f866b47475493bf21ad3e1b32580ab533f4457757c520505e73c47c5f3d9e72 489B / 489B                                                 0.4s
- => => sha256:251241f73b97776db2de604e4979799f3d1c2c1c2e3a5fb11d7c1b7b57c96448 22.50MB / 22.50MB                                          17.3s
- => => sha256:5b96c519b27935166d288d512d749c5bf07e4c4fbc7fc63010df76398259215c 14.36MB / 14.36MB                                           8.9s
- => => sha256:06c017f27ba6678a1cfeaadf4eaf1b18a51a1460806ce9f3ff76c8554c4e195b 217B / 217B                                                 0.4s
- => => sha256:93ab0a7227406b79dfd1360d92ad1e273e67dcad75ad13739a2499abe6b39abb 3.59MB / 3.59MB                                             2.1s
- => => sha256:05985ee3d59f78930e4b88f3809a4fbdc28c431289fccbfe5faa90e00bdf7f67 932B / 932B                                                 0.4s
- => => extracting sha256:93ab0a7227406b79dfd1360d92ad1e273e67dcad75ad13739a2499abe6b39abb                                                  0.1s
- => => extracting sha256:05985ee3d59f78930e4b88f3809a4fbdc28c431289fccbfe5faa90e00bdf7f67                                                  0.0s
- => => extracting sha256:06c017f27ba6678a1cfeaadf4eaf1b18a51a1460806ce9f3ff76c8554c4e195b                                                  0.0s
- => => extracting sha256:5b96c519b27935166d288d512d749c5bf07e4c4fbc7fc63010df76398259215c                                                  0.1s
- => => extracting sha256:8f866b47475493bf21ad3e1b32580ab533f4457757c520505e73c47c5f3d9e72                                                  0.0s
- => => extracting sha256:251241f73b97776db2de604e4979799f3d1c2c1c2e3a5fb11d7c1b7b57c96448                                                  0.9s
- => => extracting sha256:f6293f18632475b1ea319995f8245c05e8d802857bd2a39a98fed016f91106fd                                                  0.1s
- => => extracting sha256:5ae2e9d59d676a12ce9da665afe56a91b2a27e62233ba66323fec94c0f49338b                                                  0.0s
- => => extracting sha256:fef3c71157308e87aeaddd091a8894ec070a66f8d6ed72cdf7742aee2c2861b0                                                  2.7s
- => => extracting sha256:7feec308fd3470c97255d7a60020bbe90d767c5479a73814bc55c513ff36ebe3                                                  0.1s
- => => extracting sha256:85e723217902d16913eb5cd85e16f0238e8144013064dd023973e7d839d6da8d                                                  0.1s
- => => extracting sha256:6ee3c1d2e9ac7a655644d16c8738bccf2f888f42697c20b3744bc484ea326bae                                                  0.0s
- => => extracting sha256:14a3951ce7cc33af36e7896f9a99572ad29daa2d0e6cd866dc6b6966009b3eab                                                  0.0s
- => [stage-0 1/4] FROM docker.io/library/php:8.3-fpm@sha256:6754d4da4545f912c55671e4dd2eb79ea4d1ed677b93e1c5415fe46d1a46b23d              40.9s
- => => resolve docker.io/library/php:8.3-fpm@sha256:6754d4da4545f912c55671e4dd2eb79ea4d1ed677b93e1c5415fe46d1a46b23d                       0.1s
- => => sha256:3fa9c33bd993ff39e5740b000665bddb134085a63b7fed5a943bf8c3e951ae65 252B / 252B                                                 0.4s
- => => sha256:912c013cbaf68907625df3f0be14d3f7032f0740d78acd6301a7bd8906625799 490B / 490B                                                 0.6s
- => => sha256:7821320bce4903568098c97ce8163762b04ac29c134dabf73c5c2ca3090c9685 9.26kB / 9.26kB                                             2.2s
- => => sha256:be252c4bd7319726a1203dc4db70ad441156c36c88b73a241f130b9b1533fe54 11.90MB / 11.90MB                                           5.4s
- => => sha256:e032f3fba1f3775545f4d27c2f5f1a42804e4c2afc3ee94fbeab36e690475ee0 12.76MB / 12.76MB                                           9.8s
- => => sha256:73fea85b467e116a4326a0416afc556c654d66b8b60f70f6ec36a47b69429659 2.46kB / 2.46kB                                             1.2s
- => => sha256:22fdd6bd1ca27396a236e44a64faad010da5836261a88b6e842f724128712aa1 248B / 248B                                                 0.4s
- => => sha256:503bfb9439eb5a588e17ab7dc663eb3b8f1942f089f13dffcb2a7c219b9ca5ec 225B / 225B                                                 0.6s
- => => sha256:88148e379d0b64b4db3be2aa1c3147aa68c53e1b945dd807bf9c2e9e8408ef06 117.84MB / 117.84MB                                        32.4s
- => => sha256:a42d06368753fdcc99a0b9f38420309b4d394b4a2a49f96360de145195a62918 225B / 225B                                                 0.4s
- => => extracting sha256:a42d06368753fdcc99a0b9f38420309b4d394b4a2a49f96360de145195a62918                                                  0.0s
- => => extracting sha256:88148e379d0b64b4db3be2aa1c3147aa68c53e1b945dd807bf9c2e9e8408ef06                                                  3.0s
- => => extracting sha256:503bfb9439eb5a588e17ab7dc663eb3b8f1942f089f13dffcb2a7c219b9ca5ec                                                  0.3s
- => => extracting sha256:e032f3fba1f3775545f4d27c2f5f1a42804e4c2afc3ee94fbeab36e690475ee0                                                  0.1s
- => => extracting sha256:912c013cbaf68907625df3f0be14d3f7032f0740d78acd6301a7bd8906625799                                                  0.1s
- => => extracting sha256:be252c4bd7319726a1203dc4db70ad441156c36c88b73a241f130b9b1533fe54                                                  1.2s
- => => extracting sha256:73fea85b467e116a4326a0416afc556c654d66b8b60f70f6ec36a47b69429659                                                  0.1s
- => => extracting sha256:3fa9c33bd993ff39e5740b000665bddb134085a63b7fed5a943bf8c3e951ae65                                                  0.0s
- => => extracting sha256:22fdd6bd1ca27396a236e44a64faad010da5836261a88b6e842f724128712aa1                                                  0.0s
- => => extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1                                                  0.0s
- => => extracting sha256:7821320bce4903568098c97ce8163762b04ac29c134dabf73c5c2ca3090c9685                                                  0.0s
- => [stage-0 2/4] RUN apt-get update && apt-get install -y     git     unzip     libicu-dev     libzip-dev     libonig-dev     && docke  115.9s
- => [stage-0 3/4] COPY --from=composer:2 /usr/bin/composer /usr/bin/composer                                                               0.3s
- => [stage-0 4/4] WORKDIR /var/www                                                                                                         0.3s
- => exporting to image                                                                                                                     8.2s
- => => exporting layers                                                                                                                    7.0s
- => => exporting manifest sha256:7d78c5cadf9b1afe686eb3257d662f2aeafb666be9a2f235f145780c368b73a3                                          0.0s
- => => exporting config sha256:6e00eee3a4c2cfd2f602ffd204f6f9dee920783017b1f0209e42a9ad8c37965e                                            0.0s
- => => exporting attestation manifest sha256:7fdee81ec62d3f16322f62daeffe6ed9366e39134696cd30d379fb1fe08e038a                              0.1s
- => => exporting manifest list sha256:2807f9d27a221124db2482af7fac2e459965599cb385e05c26840959c4496d12                                     0.0s
- => => naming to docker.io/library/sistema-usuarios-ci4-app:latest                                                                         0.0s
-[+] up 13/13king to docker.io/library/sistema-usuarios-ci4-app:latest                                                                      1.0s
- ✔ Image httpd:2.4                Pulled                                                                                                  12.7s
- ✔ Image sistema-usuarios-ci4-app Built                                                                                                  169.2s
- ✔ Network sistema-usuarios-ci4_ci4 Created                                                                                                0.1s
- ✔ Container ci4_app              Created                                                                                                  1.9s
- ✔ Container ci4_web              Created                                                                                                  0.3s
 cristiano@Akilles:/mnt/c/Users/brito/desktop/Projetos/sistema-usuarios-ci4$ docker ps
 CONTAINER ID   IMAGE                      COMMAND                  CREATED         STATUS         PORTS                                     NAMES
 264c5f74c7ad   httpd:2.4                  "sh -c ' sed -i 's/#…"   7 seconds ago   Up 5 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp   ci4_web
@@ -141,13 +49,14 @@ cristiano@Akilles:/mnt/c/Users/brito/desktop/Projetos/sistema-usuarios-ci4$
 - http://localhost:8080/users/3
 
 
-*A algumas rotas ativas no momento todas funcionando*
+*A algumas rotas que eu tinha ativas no momento*
 
 ---
+
 ## Criação de rotas controllers e metodos
 - como criar uma rota?
     
-    - src/app/Config/Routes.php
+  - src/app/Config/Routes.php
 
 ```php
 $routes->get('/nova', 'NovaController::nova');
@@ -158,14 +67,8 @@ $routes->get('/nova', 'NovaController::nova');
     
     - src/app/Controllers
 
-    - src/app/Controllers/NovaController.php 
+src/app/Controllers/NovaController.php 
 
-        - *criamos uma arquivo com a extensão `.php`*  
-        - *controlador deve ter o mesmo nome da classe*
-        - *Letra inicial `Maiuscula`*
-        - *Chamamos na url pelo metodo `nova`*
-        - *deve extender `class NovaController extends BaseController`*
-        - **CODE abaixo:**
 ```php
 <?php
 
@@ -181,11 +84,11 @@ class NovaController extends BaseController
 ```
 - Ir na url:
     - http://localhost:8080/`nova`
-    - `[nota]:` Na url usar o nome da função/metodo `nova()`
+    - `[nota]:` Na url usar o nome que criamos na rota `/nova`
 
 - Como retornar uma view()
     - return view('`home`');
-    - *colocamos o nome da viu ou o caminho dentro da função*
+    - *colocamos o nome da view ou o caminho dentro da função*
     - ir na url: http://localhost:8080/`nova`
     - a view é um arquivo html normal salvo como .php
 
@@ -220,6 +123,28 @@ $routes->get('/health', function(){
 - URL → Routes.php → Controller → View
 
 ---
+### como passar dados para a view
+- passando um array de dados
+- nesse ex: `$data=[]`
+```php
+<?php
+namespace App\Controllers;
+
+
+class TesteController extends BaseController
+{
+    public function teste($name)
+    {
+        $data=[
+            'nome' => $name
+        ];
+        return view('users/teste', $data);
+    }
+}
+
+?>
+```
+
 ### pegar os dados na view
 - esc() é segurança → protege contra XSS
 ```php
@@ -229,6 +154,500 @@ $routes->get('/health', function(){
 ```
 ---
 
+## MODEL
+- criar um model
+
+`src/app/Models/UserModel.php` inicial Mokado
+
+```php
+<?php
+
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class UserModel extends Model
+{
+    public function getUsers()
+    {
+        return [
+            ['id' => 1, 'name' => 'João'],
+            ['id' => 2, 'name' => 'Maria'],
+            ['id' => 3, 'name' => 'Pedro'],
+        ];
+    }
+
+    public function getUserById($id)
+    {
+        foreach ($this->getUsers() as $user) {
+            if ($user['id'] == $id) {
+                return $user;
+            }
+        }
+
+        return null;
+    }
+}
+```
+**UserModel para o banco de dados:**  `src/app/Models/UserModel.php`
+```php
+<?php
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class UserModel extends Model
+{
+    protected $table = 'users';           // nome da tabela
+    protected $primaryKey = 'id';         // primary key
+    protected $allowedFields = ['name'];  // campo que pode ser preenchido(segurança)
+
+    public function getUsers()
+    {
+        return [
+            ['id' => 1, 'name' => 'João'],
+            ['id' => 2, 'name' => 'Maria'],
+            ['id' => 3, 'name' => 'Pedro'],
+        ];
+    }
+
+    public function getUserById($id)
+    {
+        foreach ($this->getUsers() as $user) {
+            if ($user['id'] == $id) {
+                return $user;
+            }
+        }
+
+        return null;
+    }
+}
+
+```
+
+- Instanciar o model
+
+src/app/Controllers/Users.php
+
+```php
+<?php
+namespace App\Controllers;
+
+use App\Models\UserModel;
+
+class Users extends BaseController
+{
+  public function index()
+  {
+     $model = new UserModel();
+
+     $users = $model->getUsers();
+
+     return view('users/index', [
+        'users' => $users
+     ]); 
+  }
+
+  public function show($id)
+  {
+     $model = new UserModel();
+
+     $user = $model->getUserById($id);
 
 
+     if(!$user){
+       return 'Usuario não encontrado';
+     }
 
+      return view('users/show', [
+        'user' => $user
+      ]);
+  }
+}
+
+?>
+```
+---
+
+### CRIANDO O CONTROLADOR PARA O UserModel
+`src/app/Controllers/UserController.php`
+```php
+<?php
+
+namespace App\Controllers;
+
+use App\Models\UserModel;                        // importa o model
+
+class UserController extends BaseController
+{
+    public function index()
+    {
+        $userModel = new UserModel();            // instancia o model (cria ele na memoria)
+
+        $users = $userModel->findAll();          // vai no banco buscar tudo
+
+        return $this->response->setJSON($users); // retorna como api json
+    }
+}
+
+```
+### ROTAS:
+```php
+$routes->get('/users/(:num)', 'Users::show/$1');
+
+$routes->get('/api/users', 'UserController::index');
+```
+### Depois de escrever o model ao tentar ir na url da erro
+
+```php
+CodeIgniter\Exceptions\CriticalError
+The required PHP extension "mysqli" is not loaded. Install and enable it to use "MySQLi" driver. search →
+
+SYSTEMPATH/Database/Database.php at line 182
+
+175         if (extension_loaded($extension)) {
+176             return true;
+177         }
+178 
+179         $message = 'The required PHP extension "' . $extension . '" is not loaded.'
+180             . ' Install and enable it to use "' . $driver . '" driver.';
+181 
+182         throw new CriticalError($message);
+183     }
+184 }
+185 
+
+```
+### SOLUÇÃO 1:
+- instalar o drive para o mysql no dockerfile
+
+```php
+FROM php:8.3-fpm
+
+# Dependências do sistema
+RUN apt-get update && apt-get install -y \
+    git \
+    unzip \
+    libicu-dev \
+    libzip-dev \
+    libonig-dev \
+    && docker-php-ext-install \
+    intl \
+    mbstring \
+    pdo \
+    pdo_mysql \
+    mysqli \
+    zip \
+    opcache
+
+# Composer
+COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+WORKDIR /var/www
+
+
+```
+
+### SOLUÇÃO 2:
+
+Editar o arquivo:
+
+- nano ~/.docker/config.json
+
+- provavelmente vai ter algo assim:
+
+```bash
+{
+  "credsStore": "desktop"
+}
+
+- Apaga essa linha ou deixa assim:
+
+{}
+```
+#### como deixei
+
+```bash
+
+{
+  "auths": {}
+}
+```
+- Salva (CTRL + O, Enter, CTRL + X)
+
+rebuildar para validar as correções:
+- cristiano@Akilles:/mnt/c/Users/brito/desktop/Projetos/sistema-usuarios-ci4$ `docker compose up -d --build`
+
+---
+
+# Configurando o banco de dados e criando a conexão
+
+docker-compose.yml
+```php
+  db:
+    image: mysql:8
+    container_name: ci4_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ci4
+      MYSQL_USER: ci4user
+      MYSQL_PASSWORD: ci4pass
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - ci4
+```
+
+nome do do serviço: `db`
+
+src/app/Config/Database.php
+```php
+    public array $default = [
+        'DSN'          => '',
+        'hostname'     => 'db',
+        'username'     => 'ci4user',
+        'password'     => 'ci4pass',
+        'database'     => 'ci4',
+        'DBDriver'     => 'MySQLi',
+        'DBPrefix'     => '',
+        'pConnect'     => false,
+        'DBDebug'      => true,
+        'charset'      => 'utf8mb4',
+        'DBCollat'     => 'utf8mb4_general_ci',
+        'swapPre'      => '',
+        'encrypt'      => false,
+        'compress'     => false,
+        'strictOn'     => false,
+        'failover'     => [],
+        'port'         => 3306,
+        'numberNative' => false,
+        'foundRows'    => false,
+        'dateFormat'   => [
+            'date'     => 'Y-m-d',
+            'datetime' => 'Y-m-d H:i:s',
+            'time'     => 'H:i:s',
+        ],
+    ];
+
+```
+
+*tirando a duvida dos nomes de containers*
+
+```bash
+cristiano@Akilles:/mnt/c/Users/brito/desktop/Projetos/sistema-usuarios-ci4$ docker ps                                                                      0.3s
+CONTAINER ID   IMAGE                      COMMAND                  CREATED          STATUS          PORTS                                         NAMES    0.2s
+227d2ebbb904   httpd:2.4                  "sh -c ' sed -i 's/#…"   11 seconds ago   Up 10 seconds   0.0.0.0:8080->80/tcp, [::]:8080->80/tcp       ci4_web
+79fa4c6fdcde   sistema-usuarios-ci4-app   "docker-php-entrypoi…"   12 seconds ago   Up 10 seconds   9000/tcp                                      ci4_app
+13752a2fd8df   mysql:8                    "docker-entrypoint.s…"   12 seconds ago   Up 10 seconds   0.0.0.0:3306->3306/tcp, [::]:3306->3306/tcp   ci4_db
+```
+---
+### entrar no container do mysql
+
+no terminal:
+- `docker exec -it ci4_db mysql -u root -p`
+- senha: `root`
+
+
+```bash
+
+PS C:\Users\brito> docker exec -it ci4_db mysql -u root -p
+Enter password:root
+
+mysql> show databases;
+
+mysql> use ci4;
+
+mysql> CREATE TABLE users (
+    ->     id INT AUTO_INCREMENT PRIMARY KEY,
+    ->     name VARCHAR(100)
+    -> );
+
+mysql> INSERT INTO users (name) VALUES ('Joo'), ('Maria'), ('Pedro');
+
+mysql> show tables;
+
+mysql> select * from users;
++----+-------+
+| id | name  |
++----+-------+
+|  1 | Joo   |
+|  2 | Maria |
+|  3 | Pedro |
++----+-------+
+3 rows in set (0.00 sec)
+
+mysql>
+```
+---
+
+
+# CRUD
+### create
+
+- criando uma rota limpa
+
+  - `$routes->post('/api/users', 'UserController::store');`
+
+- ajustar o model
+```php
+<?php
+
+namespace App\Models;
+
+use CodeIgniter\Model;
+
+class UserModel extends Model
+{
+    protected $table = 'users';           // passamos a tabela
+    protected $primaryKey = 'id';         // primary key
+    protected $allowedFields = ['name'];  // campo permitido
+}
+```
+- criar o metodo
+- `src/app/Controllers/UserController.php`
+
+```php
+<?php
+
+namespace App\Controllers;
+
+use App\Models\UserModel;                        // importa o model
+
+class UserController extends BaseController
+{
+    public function index()
+    {
+        $userModel = new UserModel();            // instancia o model (cria ele na memoria)
+
+        $users = $userModel->findAll();          // vai no banco buscar tudo
+
+        return $this->response->setJSON($users); // retorna como api json
+    }
+
+    public function store()                      // metodo store armazenar usuario [2026-02-27 10:09]
+    {
+       $userModel = new UserModel();             // 1. cria uma nova instancia do modelo UserModel
+
+       // 2. Pega o corpo da requisição esperando que venha em formato JSON
+       //    O true como parâmetro faz o CodeIgniter converter o JSON em array associativo
+       $data = $this->request->getJSON(true);    
+
+       // 3. Verifica se o campo 'name' existe no JSON e se não está vazio
+       if (!isset($data['name']) || empty($data['name'])) {
+           // 4. Se não veio o nome ou veio vazio → retorna erro 400 (Bad Request)
+           return $this->response->setJSON([
+               'error' => 'Nome é obrigatório'
+           ])->setStatusCode(400);
+           // Obs: o return encerra a execução do método imediatamente
+       }
+       
+       // 5. Se chegou aqui é porque tem nome → faz a inserção no banco de dados
+       //    O método insert() do modelo geralmente faz INSERT INTO users ...
+       $userModel->insert([
+           'name' => $data['name']
+           // Aqui poderiam vir mais campos, ex: 'email', 'password', etc.
+       ]);
+
+       // 6. Retorna resposta de sucesso com status 201 (Created)
+       return $this->response->setJSON([
+           'message' => 'Usuário criado com sucesso'
+       ])->setStatusCode(201);
+    }
+}
+```
+
+- testando com postman
+![postman](image.png)
+
+- para testar a requisição curls posso usar o terminal do ubuntu 
+  - clicar no + e usar
+```bash
+cristiano@Akilles:~$ curl -X POST http://localhost:8080/api/users \
+-H "Content-Type: application/json" \
+-d '{"name": "Cristiano"}'
+{
+    "message": "Usuário criado com sucesso"
+cristiano@Akilles:~$ curl -X POST http://localhost:8080/api/users -H "Content-Type: application/json" -d '{"name": "Carlos"}'
+{
+    "message": "Usuário criado com sucesso"
+}cristiano@Akilles:~$
+```
+
+```bash
+
+}cristiano@Akilles:~$curl http://localhost:8080/api/userss
+[
+    {
+        "id": "1",
+        "name": "Joo"
+    },
+    {
+        "id": "2",
+        "name": "Maria"
+    },
+    {
+        "id": "3",
+        "name": "Pedro"
+    },
+    {
+        "id": "4",
+        "name": "Cristiano"
+    },
+    {
+        "id": "5",
+        "name": "Cristiano"
+    },
+    {
+        "id": "6",
+        "name": "Joyce"
+    },
+    {
+        "id": "7",
+        "name": "Akilles"
+    },
+    {
+        "id": "8",
+        "name": "Cristiano"
+    },
+    {
+        "id": "9",
+        "name": "Carlos"
+    }
+]cristiano@Akilles:~$
+
+```
+- teste correto
+
+![alt text](image-1.png)
+
+
+---
+
+## resolver pasta docs para nao ser rastreada
+
+Como resolver isso (O "Pulo do Gato")
+Para que o Git passe a respeitar o seu .gitignore e pare de listar a pasta devops, você precisa remover esses arquivos do índice (cache) do Git, sem apagá-los do seu computador.
+
+Execute os seguintes comandos no seu terminal (dentro da pasta do projeto):
+
+- Remover a pasta do cache do Git:
+
+```Bash
+git rm -r --cached devops/
+(Isso diz ao Git: "Esqueça esses arquivos, mas não os delete do meu disco")
+```
+- Verificar o status:
+
+```Bash
+git status
+Agora você verá que os arquivos da pasta devops aparecerão como "deleted" (no índice) e a pasta não deve mais aparecer em "modified".
+```
+Confirmar a mudança:
+
+```Bash
+git add .
+git commit -m "Removendo pasta devops do rastreamento para respeitar o gitignore"
+```

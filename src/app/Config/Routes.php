@@ -34,3 +34,7 @@ $routes->post('/seguranca/disparar', 'Teste2Controller::dispararScan');
 $routes->get('/users', 'Users::index');
 
 $routes->get('/users/(:num)', 'Users::show/$1');
+
+$routes->get('/api/users', 'UserController::index');
+
+$routes->post('/api/users', 'UserController::store');
