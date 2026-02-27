@@ -31,8 +31,8 @@ services:
 
     networks:
       - ci4
-      - app
-      - db
+      # - app
+      # - db
 
   db:
     image: mysql:8
