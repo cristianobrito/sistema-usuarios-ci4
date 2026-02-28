@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>scripts.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="scripts-shell">SCRIPTS SHELL</h1>
+<ul>
+<li>rodar o docker desktop</li>
+<li>no terminal</li>
+<li>PS C:\Users\brito&gt; <strong>wsl --list --verbose</strong></li>
+<li>PS C:\Users\brito&gt; <strong>wsl -d ubutnu-24.04</strong></li>
+<li>cristiano@Akilles:/mnt/c/Users/brito$ <strong>cd desktop</strong></li>
+<li>cristiano@Akilles:/mnt/c/Users/brito/desktop$ <strong>ls</strong></li>
+<li>cristiano@Akilles:/mnt/c/Users/brito/desktop/Projetos$ <strong>cd sistema-usuarios-ci4/</strong></li>
+<li>cristiano@Akilles:/mnt/c/Users/brito/desktop/Projetos/sistema-usuarios-ci4$ <strong>code .</strong></li>
+<li>cristiano@Akilles:/mnt/c/Users/brito/desktop/Projetos/sistema-usuarios-ci4$ <strong>docker compose up -d</strong></li>
+<li>ver se tudo subiu:</li>
+</ul>
+<pre class="hljs"><code><div>cristiano@Akilles:/mnt/c/Users/brito/desktop/Projetos/sistema-usuarios-ci4$ docker ps
+CONTAINER ID   IMAGE                      COMMAND                  CREATED          STATUS          PORTS                                         NAMES
+dc75d7619cf8   httpd:2.4                  <span class="hljs-string">"sh -c ' sed -i 's/#…"</span>   45 seconds ago   Up 43 seconds   0.0.0.0:8080-&gt;80/tcp, [::]:8080-&gt;80/tcp       ci4_web
+887ca551aa6c   sistema-usuarios-ci4-app   <span class="hljs-string">"docker-php-entrypoi…"</span>   45 seconds ago   Up 44 seconds   9000/tcp                                      ci4_app
+61468b0f12ae   mysql:8                    <span class="hljs-string">"docker-entrypoint.s…"</span>   45 seconds ago   Up 44 seconds   0.0.0.0:3306-&gt;3306/tcp, [::]:3306-&gt;3306/tcp   ci4_db
+</div></code></pre>
+<hr>
+<ul>
+<li>em outro terminal:
+<ul>
+<li>PS C:\Users\brito&gt; docker exec -it ci4_app sh</li>
+<li>pwd</li>
+<li>ls</li>
+<li>ls -la shell</li>
+</ul>
+</li>
+</ul>
+<h4 id="onde-as-pastas-est%C3%A3o">onde as pastas estão</h4>
+<p><img src="image.png" alt="alt text"></p>
+<p>entrando no container e listando</p>
+<pre class="hljs"><code><div>PS C:\Users\brito&gt; docker <span class="hljs-built_in">exec</span> -it ci4_app sh
+<span class="hljs-comment"># pwd</span>
+/var/www
+<span class="hljs-comment"># ls</span>
+LICENSE    builds         cristiano  phpunit.xml.dist  readmeDoCron.txt   shell  vendor
+README.md  composer.json  env        preload.php       readmeDoCron2.txt  spark  writable
+app        composer.lock  logs       public            seis.txt           tests
+</div></code></pre>
+<ul>
+<li>Olhar o docker-compose.yml para ver para onde as pastas estão sendo mapeadas</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">HOST</th>
+<th style="text-align:center">:</th>
+<th style="text-align:left">CONTAINER</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>/src</code></td>
+<td style="text-align:center">:</td>
+<td style="text-align:left"><code>/var/www</code></td>
+</tr>
+</tbody>
+</table>
+<pre class="hljs"><code><div>volumes:
+  - ./src:/var/www
+</div></code></pre>
+<hr>
+<h3 id="como-resolver-o-problema-das-setas-quando-nao-funciona-o-terminal">como resolver o problema das setas quando nao funciona o terminal</h3>
+<ul>
+<li>PS C:\Users\brito&gt; docker exec -it ci4_app bash</li>
+<li>PS C:\Users\brito&gt; docker exec -it ci4_app sh
+<ul>
+<li>Usando sh o terminal não aceita usar as setas para cima para baixo etc... para resolver so entrar usando bash</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="dentro-do-container-instalar-o-vim">dentro do container instalar o vim</h3>
+<ul>
+<li>apt install -y vim</li>
+<li>vim pegarEntradaUsuario-00.sh</li>
+</ul>
+<pre class="hljs"><code><div>root@887ca551aa6c:/var/www/shell/seguranca<span class="hljs-comment"># cat pegarEntradaUsuario-00.sh</span>
+<span class="hljs-meta">#!/bin/bash</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">'teste de permissao'</span>
+</div></code></pre>
+<ul>
+<li>root@887ca551aa6c:/var/www/shell/seguranca# chmod +x pegarEntradaUsuario-00.sh</li>
+<li>root@887ca551aa6c:/var/www/shell/seguranca# ls -l</li>
+<li>-rwxrwxrw<code>x</code> 1 1000 1000    39 Feb 28 12:48 pegarEntradaUsuario-00.sh</li>
+<li>root@887ca551aa6c:/var/www/shell/seguranca# <code>./pegarEntradaUsuario-00.sh</code></li>
+</ul>
+<h4 id="script-que-pega-a-entrada-do-usuario">script que pega a entrada do usuario</h4>
+<ul>
+<li>root@887ca551aa6c:/var/www/shell/seguranca# cat pegarEntradaUsuario-00.sh</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-meta">#!/bin/bash</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">'teste de permissao'</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"digite seu nome: "</span>
+<span class="hljs-built_in">read</span> NOME
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"bem vindo! <span class="hljs-variable">$NOME</span>"</span>
+</div></code></pre>
+<hr>
+<h3 id="script-que-verifica-se-uma-pasta-e-um-arquivo-existe">script que verifica se uma pasta e um arquivo existe</h3>
+<p>root@887ca551aa6c:/var/www/shell/seguranca# <code>cat decisaoVerificacao-01.sh</code></p>
+<pre class="hljs"><code><div><span class="hljs-meta">#!/bin/bash</span>
+<span class="hljs-comment">##############################################</span>
+<span class="hljs-comment"># esse escript verifica se uma pasta existe</span>
+<span class="hljs-comment"># cria a pasta se ela nao existir</span>
+<span class="hljs-comment"># verifica se um arquivo existe</span>
+<span class="hljs-comment"># mostra mensagens claras de status</span>
+<span class="hljs-comment">##############################################</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"INICIO DO SCRIPT"</span>
+PASTA=<span class="hljs-string">"/var/www/shell/logs"</span>
+ARQUI=<span class="hljs-string">"<span class="hljs-variable">$PASTA</span>/verificaPastaArquivo.log"</span>
+
+<span class="hljs-keyword">if</span> [ -d <span class="hljs-string">"<span class="hljs-variable">$PASTA</span>"</span> ]; <span class="hljs-keyword">then</span>
+  <span class="hljs-built_in">echo</span> <span class="hljs-string">"pasta <span class="hljs-variable">$PASTA</span> ja existe."</span>
+<span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">"pasta nao existe criando. . ."</span>
+        mkdir <span class="hljs-variable">$PASTA</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-keyword">if</span> [ -f <span class="hljs-string">"<span class="hljs-variable">$ARQUI</span>"</span> ]; <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">"arquivo existe."</span>
+<span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">"arquivo nao existe criando..."</span>
+        touch <span class="hljs-variable">$ARQUI</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"status final"</span>
+ls -l <span class="hljs-variable">$PASTA</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"=====[ FIM ]====="</span>
+</div></code></pre>
+<p><strong>adicionando cor ao script</strong></p>
+<p>root@887ca551aa6c:/var/www/shell/seguranca# <code>cat decisaoVerificacao-01.sh</code></p>
+<pre class="hljs"><code><div><span class="hljs-meta">#!/bin/bash</span>
+<span class="hljs-comment">##############################################</span>
+<span class="hljs-comment"># esse escript verifica se uma pasta existe</span>
+<span class="hljs-comment"># cria a pasta se ela nao existir</span>
+<span class="hljs-comment"># verifica se um arquivo existe</span>
+<span class="hljs-comment"># mostra mensagens claras de status</span>
+<span class="hljs-comment">##############################################</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"INICIO DO SCRIPT"</span>
+
+<span class="hljs-comment">#############################################</span>
+VERDE=<span class="hljs-string">'\033[0;32m'</span>
+AMARELO=<span class="hljs-string">'\033[1;33m'</span>
+VERMELHO=<span class="hljs-string">'\033[0;31m'</span>
+AZUL=<span class="hljs-string">'\033[0;34m'</span>
+AZUL_CLARO=<span class="hljs-string">'\033[1;34'</span>
+RESET=<span class="hljs-string">'\033[0m'</span>
+<span class="hljs-comment">#############################################</span>
+
+PASTA=<span class="hljs-string">"/var/www/shell/logs"</span>
+ARQUI=<span class="hljs-string">"<span class="hljs-variable">$PASTA</span>/verificaPastaArquivo.log"</span>
+
+<span class="hljs-keyword">if</span> [ -d <span class="hljs-string">"<span class="hljs-variable">$PASTA</span>"</span> ]; <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> -e <span class="hljs-string">"pasta<span class="hljs-variable">${VERDE}</span>\t[ <span class="hljs-variable">$PASTA</span> ]\t\t\t\t\t<span class="hljs-variable">${RESET}</span>ja existe."</span>
+<span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">"pasta nao existe criando. . ."</span>
+        mkdir <span class="hljs-variable">$PASTA</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-keyword">if</span> [ -f <span class="hljs-string">"<span class="hljs-variable">$ARQUI</span>"</span> ]; <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> -e <span class="hljs-string">"arquivo<span class="hljs-variable">${AZUL}</span>\t[ <span class="hljs-variable">$ARQUI</span> ]\t<span class="hljs-variable">${RESET}</span>ja existe."</span>
+<span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">"arquivo nao existe criando..."</span>
+        touch <span class="hljs-variable">$ARQUI</span>
+<span class="hljs-keyword">fi</span>
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"status final"</span>
+ls -l <span class="hljs-variable">$PASTA</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">"=====[ FIM ]====="</span>
+</div></code></pre>
+<p>saida:</p>
+<p>root@887ca551aa6c:/var/www/shell/seguranca# <code>./decisaoVerificacao-01.sh</code></p>
+<pre class="hljs"><code><div>INICIO DO SCRIPT
+pasta   [ /var/www/shell/logs ]                                 ja existe.
+arquivo [ /var/www/shell/logs/verificaPastaArquivo.log ]        ja existe.
+status final
+total 4
+-rwxrwxrwx 1 1000 1000 882 Feb  6 13:40 scan_extesoes.log
+-rwxrwxrwx 1 1000 1000   0 Feb 28 13:55 verificaPastaArquivo.log
+=====[ FIM ]=====
+</div></code></pre>
+<hr>
+<p>procura por pastas e arquivos</p>
+<p>root@887ca551aa6c:/var/www/shell/seguranca# cat percorrePastaAnalizaArquivos-02.sh</p>
+<pre class="hljs"><code><div><span class="hljs-meta">#!/bin/bash</span>
+<span class="hljs-comment">##################################</span>
+<span class="hljs-comment"># script que percorre uma pasta</span>
+<span class="hljs-comment"># analiza arquivos</span>
+<span class="hljs-comment"># mostra informacoes</span>
+<span class="hljs-comment">##################################</span>
+VERDE=<span class="hljs-string">'\033[0;32m'</span>
+AMARELO=<span class="hljs-string">'\033[1;33m'</span>
+RESET=<span class="hljs-string">'\033[0m'</span>
+<span class="hljs-built_in">echo</span> <span class="hljs-string">'----- [ varredura de arquivos ] -----'</span>
+PASTA=<span class="hljs-string">'/var/www/shell'</span>
+
+<span class="hljs-keyword">for</span> ITEM <span class="hljs-keyword">in</span> <span class="hljs-variable">$PASTA</span>/*
+<span class="hljs-keyword">do</span>
+        <span class="hljs-keyword">if</span> [ -d <span class="hljs-string">"<span class="hljs-variable">$ITEM</span>"</span> ]; <span class="hljs-keyword">then</span>
+                <span class="hljs-built_in">echo</span> -e <span class="hljs-string">"<span class="hljs-variable">${VERDE}</span>[PASTA  ]<span class="hljs-variable">${RESET}</span>\t <span class="hljs-variable">$ITEM</span>"</span>
+        <span class="hljs-keyword">elif</span> [ -f <span class="hljs-string">"<span class="hljs-variable">$ITEM</span>"</span> ]; <span class="hljs-keyword">then</span>
+                <span class="hljs-built_in">echo</span> -e <span class="hljs-string">"<span class="hljs-variable">${AMARELO}</span>[ARQUIVO]<span class="hljs-variable">${RESET}</span>\t <span class="hljs-variable">$ITEM</span>"</span>
+        <span class="hljs-keyword">fi</span>
+<span class="hljs-keyword">done</span>
+date
+<span class="hljs-built_in">echo</span> <span class="hljs-string">'----- [ FIM DO SCRIPT ] -----'</span>
+root@887ca551aa6c:/var/www/shell/seguranca<span class="hljs-comment">#</span>
+</div></code></pre>
+<p>root@887ca551aa6c:/var/www/shell/seguranca# <code>./percorrePastaAnalizaArquivos-02.sh</code></p>
+<p>saida:</p>
+<pre class="hljs"><code><div>----- [ varredura de arquivos ] -----
+[ARQUIVO]        /var/www/shell/arquivo-importante.txt
+[ARQUIVO]        /var/www/shell/dois_v1.txt
+[PASTA  ]        /var/www/shell/logs
+[PASTA  ]        /var/www/shell/protecao
+[ARQUIVO]        /var/www/shell/readme.txt
+[PASTA  ]        /var/www/shell/seguranca
+[PASTA  ]        /var/www/shell/seguranca2
+Sat Feb 28 14:51:31 UTC 2026
+----- [ FIM DO SCRIPT ] -----
+</div></code></pre>
+<hr>
+<h2 id="graficos-e-setas-em-markdown">GRAFICOS E SETAS EM MARKDOWN</h2>
+<pre><code class="language-mermaid"><div class="mermaid">graph LR
+    A[Início] --> B{Decisão?}
+    B -->|Sim| C[Sucesso]
+    B -->|Não| D[Erro]
+    C --> E[Fim]
+    D --> E
+</div></code></pre>
+<p>Resultado (quando o lugar suporta Mermaid):</p>
+<ul>
+<li>precisa instalar a extesão markdown preview mermaid support e salvar como html e abrir no google chrome só depois ctrl + p para imprimir e salvar como pdf ai vemos os graficos</li>
+</ul>
+<hr>
+
+</body>
+</html>
