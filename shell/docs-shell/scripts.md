@@ -214,6 +214,16 @@ Sat Feb 28 14:51:31 UTC 2026
 ----- [ FIM DO SCRIPT ] -----
 ```
 ---
+## git
+cristiano@Akilles:/mnt/c/Users/brito/desktop/Projetos/`sistema-usuarios-ci4`$ 
+- git status
+- git add .
+- git commit -m "mudando o size do link do readme"
+- git push -u origin main
+- git status
+
+---
+
 
 
 
