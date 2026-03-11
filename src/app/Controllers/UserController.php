@@ -4,15 +4,22 @@ namespace App\Controllers;
 
 use App\Models\UserModel;                        // importa o model
 
-class UserController extends BaseController
+// isso é um dock block para poder melhorar as pesquisas
+/**
+ * @property \CodeIgniter\HTTP\Response $response
+ * @property \CodeIgniter\HTTP\IncomingRequest $request
+ */
+
+
+class UserController extends BaseController      // obrigatorio extender
 {
-    public function index()
+    public function index()                      // nome da funçao
     {
         $userModel = new UserModel();            // instancia o model (cria ele na memoria)
 
         $users = $userModel->findAll();          // vai no banco buscar tudo
 
-        return $this->response->setJSON($users); // retorna como api json
+        return $this->response->setJSON($users); // retorna o objeto http da resposta para permitir o encadeamneto -> 
     }
 
     public function store()                      // metodo store armazenar usuario [2026-02-27 10:09]
@@ -43,5 +50,50 @@ class UserController extends BaseController
        return $this->response->setJSON([
            'message' => 'Usuário criado com sucesso'
        ])->setStatusCode(201);
+    }
+
+    // update
+    public function update($id = null)      // nome da função
+    {
+      $userModel = new UserModel();         // instancia cria o model na memoria $userModel
+
+      $user = $userModel->find($id);        // find() busca no banco um unico registro pelo id
+
+      if (!$user) {                         // true or false se não encontrar o $user no banco
+          return $this->response->setJSON([        // setJSON() converte array e obj em string json e recebe ler no body e headers
+              'error' => 'Usuário não encontrado'  // retorna um erro em formato json como resposta  
+          ])->setStatusCode(404);                  // 404 indica que estabeleceu a conexao mais nao encontrou 
+      }                                            // o recurso
+
+      $data = $this->request->getJSON(true);       // le dados json enviados no body  true faz o retorno ser um array associativo  
+                                                   // resutado final data é um array associativo do json recebido
+      $userModel->update($id, [                    // update() atualiza um registro existente ela permite passar um array de dados
+          'name' => $data['name'] ?? $user['name'] // true??false se data tiver um nome use ele se nao use(mantenha) o do usuario
+      ]);
+      
+      return $this->response->setJSON([                  // a resposta é em json no body e no headers que o usuario foi atualizado
+          'message' => 'Usuário atualizado com sucesso'  // Content-Type: application/json
+      ]);
+
+    }
+
+    // delete
+    public function delete($id = null)
+    {
+        $userModel = new UserModel();
+    
+        $user = $userModel->find($id);
+    
+        if (!$user) {
+            return $this->response->setJSON([
+                'error' => 'Usuário não encontrado'
+            ])->setStatusCode(404);
+        }
+    
+        $userModel->delete($id);
+    
+        return $this->response->setJSON([
+            'message' => 'Usuário removido com sucesso'
+        ]);
     }
 }

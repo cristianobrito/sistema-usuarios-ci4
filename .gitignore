@@ -1,0 +1,10 @@
+/vendor/
+/writable/
+/.env
+
+node_modules/
+.DS_Store
+Thumbs.db
+
+*.code-workspace
+shell/docs-shell/

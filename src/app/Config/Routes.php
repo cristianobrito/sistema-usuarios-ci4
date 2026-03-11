@@ -23,6 +23,10 @@ $routes->get('/user/(:any)', 'UsersController::profile/$1');
 
 $routes->get('/teste/(:any)', 'TesteController::teste/$1');
 
+$routes->put('/api/users/(:num)', 'UserController::update/$1');
+
+$routes->delete('/api/users/(:num)', 'UserController::delete/$1');
+
 $routes->get('/teste2/(:any)', 'Teste2Controller::teste2/$1');
 
 $routes->get('/laboratorio', 'Teste2Controller::laboratorio');
