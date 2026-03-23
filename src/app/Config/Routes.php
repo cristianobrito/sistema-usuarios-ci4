@@ -41,4 +41,6 @@ $routes->get('/users/(:num)', 'Users::show/$1');
 
 $routes->get('/api/users', 'UserController::index');
 
+$routes->get('/api/users/(:num)', 'UserController::show/$1');
+
 $routes->post('/api/users', 'UserController::store');

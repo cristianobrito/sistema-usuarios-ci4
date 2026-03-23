@@ -30,14 +30,26 @@ class UserController extends BaseController      // obrigatorio extender
        //    O true como parâmetro faz o CodeIgniter converter o JSON em array associativo
        $data = $this->request->getJSON(true);    
 
-       // 3. Verifica se o campo 'name' existe no JSON e se não está vazio
-       if (!isset($data['name']) || empty($data['name'])) {
-           // 4. Se não veio o nome ou veio vazio → retorna erro 400 (Bad Request)
-           return $this->response->setJSON([
-               'error' => 'Nome é obrigatório'
-           ])->setStatusCode(400);
-           // Obs: o return encerra a execução do método imediatamente
+       // regras
+       $rules = [
+        'name' => 'required|min_length[3]'
+       ];
+
+       if(!$this->validate($rules)){
+        return $this->response->setJSON([
+            'error' => $this->validator->getErrors()
+        ])->setStatusCode(400);
        }
+
+       // 3. Verifica se o campo 'name' existe no JSON e se não está vazio
+       // removendo essavalidação manual
+    //    if (!isset($data['name']) || empty($data['name'])) {
+           // 4. Se não veio o nome ou veio vazio → retorna erro 400 (Bad Request)
+        //    return $this->response->setJSON([
+        //        'error' => 'Nome é obrigatório'
+        //    ])->setStatusCode(400);
+           // Obs: o return encerra a execução do método imediatamente
+    //    }
        
        // 5. Se chegou aqui é porque tem nome → faz a inserção no banco de dados
        //    O método insert() do modelo geralmente faz INSERT INTO users ...
@@ -96,4 +108,20 @@ class UserController extends BaseController      // obrigatorio extender
             'message' => 'Usuário removido com sucesso'
         ]);
     }
+
+    // get buscar 
+    public function show($id = null)
+{
+    $userModel = new UserModel();
+
+    $user = $userModel->find($id);
+
+    if (!$user) {
+        return $this->response->setJSON([
+            'error' => 'Usuário não encontrado'
+        ])->setStatusCode(404);
+    }
+
+    return $this->response->setJSON($user);
+}
 }
