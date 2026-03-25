@@ -2,3 +2,147 @@ arquivo de configuraçao para o projeto ci4
 para testar os commits 
 e configuraçao do repositorio
 [2026-03-04 11:04]
+
+
+use App\Models\UserModel; // Importou o atalho lá no topo
+
+public function __construct() {
+    $this->userModel = new UserModel(); // Agora o PHP já sabe de onde ele vem
+}
+
+
+namespace
+// Arquivo: app/Services/Whatsapp/EnviarMensagem.php
+namespace App\Services\Whatsapp;
+
+class EnviarMensagem { 
+    public function executar() { return "Enviando pelo Zap..."; } 
+}
+
+// Arquivo: app/Services/Telegram/EnviarMensagem.php
+namespace App\Services\Telegram;
+
+class EnviarMensagem { 
+    public function executar() { return "Enviando pelo Telegram..."; } 
+}
+
+<?php
+
+namespace App\Controllers;
+
+// Usamos "as" (apelido) para diferenciar se os nomes forem iguais
+use App\Services\Whatsapp\EnviarMensagem as ZapService;
+use App\Services\Telegram\EnviarMensagem as TelegramService;
+
+class NotificacaoController 
+{
+    public function avisarUsuario() 
+    {
+        $zap = new ZapService();
+        echo $zap->executar(); // "Enviando pelo Zap..."
+
+        $telegram = new TelegramService();
+        echo $telegram->executar(); // "Enviando pelo Telegram..."
+    }
+}
+
+
+
+curl
+# GET - Buscar todos os usuários
+curl -X GET http://localhost:8080/api/users
+
+# GET - Buscar um usuário específico
+curl -X GET http://localhost:8080/api/users/5
+
+# POST - Criar um novo usuário (JSON)
+curl -X POST http://localhost:8080/api/users \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "João Silva",
+    "email": "joao@email.com",
+    "password": "123456"
+  }'
+
+# PUT - Atualizar um usuário (substitui tudo)
+curl -X PUT http://localhost:8080/api/users/5 \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "João Santos",
+    "email": "joao.novo@email.com"
+  }'
+
+# DELETE - Deletar um usuário
+curl -X DELETE http://localhost:8080/api/users/5
+
+
+
+usando api de testes
+cristiano@Akilles:~$curl https://jsonplaceholder.typicode.com/posts/11
+{
+  "userId": 1,
+  "id": 1,
+  "title": "sunt aut facere repellat provident occaecati excepturi optio reprehenderit",
+  "body": "quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto"
+}cristiano@Akilles:~$ curl -X POST https://jsonplaceholder.typicode.com/posts -H "Content-Type: application/json" -d '{"title":"teste","body":"oi","userId":1}'
+{
+  "title": "teste",
+  "body": "oi",
+  "userId": 1,
+  "id": 101
+}cristiano@Akilles:~$
+
+
+
+-----------------------------------------------
+#!/bin/bash
+# ================================================
+# COMANDOS CURL - API de Usuários (CodeIgniter 4)
+# Rode com:   bash api-usuarios-curl.sh
+# ================================================
+
+BASE_URL="http://localhost:8080/api/users"
+
+echo "=== API USUÁRIOS - TESTES COM CURL ==="
+
+# 1. GET - Listar todos os usuários
+echo -e "\n1. GET /api/users (listar todos)"
+curl -X GET "$BASE_URL"
+
+# 2. GET - Buscar um usuário específico (troque o 1 pelo ID real)
+echo -e "\n\n2. GET /api/users/1 (buscar um usuário)"
+curl -X GET "$BASE_URL/1"
+
+# 3. POST - Criar novo usuário
+echo -e "\n\n3. POST /api/users (criar)"
+curl -X POST "$BASE_URL" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Ana Costa",
+    "email": "ana.costa@email.com",
+    "password": "12345678"
+  }'
+
+# 4. PUT - Atualizar um usuário (troque o 1 pelo ID)
+echo -e "\n\n4. PUT /api/users/1 (atualizar)"
+curl -X PUT "$BASE_URL/1" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "name": "Ana Silva Costa",
+    "email": "ana.silva@email.com"
+  }'
+
+# 5. DELETE - Deletar um usuário (troque o 1 pelo ID)
+echo -e "\n\n5. DELETE /api/users/1 (deletar)"
+curl -X DELETE "$BASE_URL/1"
+
+echo -e "\n\n=== FIM DOS TESTES ==="
+
+
+
+corrigir o encoding do mysql
+ALTER DATABASE ci4 CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE users CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+
+
